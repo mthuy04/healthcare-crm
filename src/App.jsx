@@ -18,6 +18,7 @@ function App() {
         <Route path="/patient/123" element={<PatientOverview />} /> 
         <Route path="/users/create" element={<CreateUser />} />
         <Route path="/audit-logs" element={<AuditLogs />} />
+        <Route path="/roles" element={<RoleAssignment />} />
       </Routes>
     </Router>
   );

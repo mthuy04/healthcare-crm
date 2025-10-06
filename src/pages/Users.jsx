@@ -2,6 +2,7 @@
 import MainLayout from '../components/layout/MainLayout';
 import Button from '../components/common/Button';
 import { Link, useNavigate } from 'react-router-dom'; // 1. Import useNavigate
+import SecondaryButton from '../components/common/SecondaryButton';
 import { Check } from 'lucide-react';
 
 const usersData = [
@@ -35,9 +36,15 @@ export default function Users() {
     <MainLayout>
       <div className="flex justify-between items-center mb-6">
         <h1 className="text-3xl font-bold text-gray-800">Users</h1>
-        <Link to="/users/create">
-          <Button>+ Add User</Button>
-        </Link>
+        <div className="flex space-x-4">
+          <Link to="/roles">
+            <SecondaryButton>Manage Roles</SecondaryButton>
+          </Link>
+          <Link to="/users/create">
+            <Button>+ Add User</Button>
+          </Link>
+        </div>
+
       </div>
       
       <div className="bg-white rounded-lg shadow overflow-x-auto">

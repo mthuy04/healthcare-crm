@@ -1,12 +1,13 @@
 // src/pages/Users.jsx
 import MainLayout from '../components/layout/MainLayout';
 import Button from '../components/common/Button';
-import { Link } from 'react-router-dom'; // 1. Import Link
-import { Check } from 'lucide-react'; // 2. Import icon Check (thay cho CheckCircle2)
+import { Link, useNavigate } from 'react-router-dom'; // 1. Import useNavigate
+import { Check } from 'lucide-react';
 
 const usersData = [
     { name: 'Dr. Emily Carter', role: 'Doctor', linkedId: '12345', createdAt: '2023-01-15', lastLogin: '2024-03-10', active: true },
     { name: 'Admin User', role: 'Admin', linkedId: 'N/A', createdAt: '2022-11-20', lastLogin: '2024-03-12', active: true },
+    // Dữ liệu của Sophia Clark đây
     { name: 'Sophia Clark', role: 'Patient', linkedId: '67890', createdAt: '2023-05-08', lastLogin: '2024-03-05', active: true },
     { name: 'Dr. David Lee', role: 'Doctor', linkedId: '54321', createdAt: '2023-02-28', lastLogin: '2024-03-09', active: false },
     { name: 'Another Admin', role: 'Admin', linkedId: 'N/A', createdAt: '2023-03-15', lastLogin: '2024-03-11', active: true },
@@ -17,11 +18,23 @@ const usersData = [
 const headers = ['User Name', 'Role', 'Linked ID', 'Created At', 'Last Login', 'Active'];
 
 export default function Users() {
+  const navigate = useNavigate(); // 2. Khởi tạo hook navigate
+
+  const handleRowClick = (user) => {
+    // 3. Logic xử lý khi nhấn vào một dòng
+    // Nếu vai trò là 'Patient', chuyển đến trang chi tiết của họ
+    if (user.role === 'Patient') {
+      // Giả sử ID của Sophia Clark là 123 (trong thực tế sẽ lấy từ user.id)
+      // Chúng ta sẽ dùng đường dẫn đã định nghĩa trong App.jsx
+      navigate(`/patient/123`); 
+    }
+    // Bạn có thể thêm logic cho các vai trò khác ở đây
+  };
+
   return (
     <MainLayout>
       <div className="flex justify-between items-center mb-6">
         <h1 className="text-3xl font-bold text-gray-800">Users</h1>
-        {/* 3. Bọc nút Button trong thẻ Link */}
         <Link to="/users/create">
           <Button>+ Add User</Button>
         </Link>
@@ -40,15 +53,18 @@ export default function Users() {
           </thead>
           <tbody className="divide-y divide-gray-200">
             {usersData.map((user, index) => (
-              <tr key={index}>
-                {/* 4. Thêm font-semibold cho cột User Name */}
+              // 4. Thêm sự kiện onClick và các class để làm cho dòng có thể bấm vào
+              <tr 
+                key={index}
+                onClick={() => handleRowClick(user)}
+                className="hover:bg-gray-50 cursor-pointer"
+              >
                 <td className="py-4 px-6 font-semibold text-gray-900">{user.name}</td>
                 <td className="py-4 px-6 text-gray-600">{user.role}</td>
                 <td className="py-4 px-6 text-gray-600">{user.linkedId}</td>
                 <td className="py-4 px-6 text-gray-600">{user.createdAt}</td>
                 <td className="py-4 px-6 text-gray-600">{user.lastLogin}</td>
                 <td className="py-4 px-6">
-                  {/* 5. Thay đổi cách hiển thị icon checkmark */}
                   {user.active && (
                     <div className="w-5 h-5 flex items-center justify-center bg-blue-500 rounded-full">
                         <Check size={14} className="text-white" />

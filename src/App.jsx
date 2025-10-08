@@ -31,6 +31,7 @@ function App() {
         <Route path="/departments/new" element={<DepartmentFormPage />} />
         <Route path="/departments/edit/:departmentId" element={<DepartmentFormPage />} />
         <Route path="/appointments" element={<AppointmentsPage />} />
+        <Route path="/reports" element={<ReportsPage />} />
 
       </Routes>
     </Router>

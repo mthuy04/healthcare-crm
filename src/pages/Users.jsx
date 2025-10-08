@@ -31,7 +31,7 @@ export default function Users() {
     }
     // Bạn có thể thêm logic cho các vai trò khác ở đây
     if (user.role === 'Doctor' && user.linkedId) {
-      navigate(`/doctors/edit/${user.linkedId}`);
+      navigate(`/doctors/profile/${user.linkedId}`);
     }
   };
 

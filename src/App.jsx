@@ -21,6 +21,7 @@ function App() {
         <Route path="/audit-logs" element={<AuditLogs />} />
         <Route path="/roles" element={<RoleAssignment />} />
         <Route path="/doctors/edit/:doctorId" element={<DoctorFormPage />} />
+        <Route path="/doctors/profile/:doctorId" element={<DoctorProfilePage />} />
       </Routes>
     </Router>
   );

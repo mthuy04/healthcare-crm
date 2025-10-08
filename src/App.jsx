@@ -10,6 +10,7 @@ import DoctorFormPage from './pages/DoctorFormPage';
 import DoctorProfilePage from './pages/DoctorProfilePage';
 import DepartmentsListPage from './pages/DepartmentsListPage';
 import DepartmentFormPage from './pages/DepartmentFormPage';
+import AppointmentsPage from './pages/AppointmentsPage';
 
 function App() {
   return (
@@ -28,6 +29,7 @@ function App() {
         <Route path="/departments" element={<DepartmentsListPage />} />
         <Route path="/departments/new" element={<DepartmentFormPage />} />
         <Route path="/departments/edit/:departmentId" element={<DepartmentFormPage />} />
+        <Route path="/appointments" element={<AppointmentsPage />} />
 
       </Routes>
     </Router>

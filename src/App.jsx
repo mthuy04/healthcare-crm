@@ -7,6 +7,7 @@ import PatientOverview from './pages/PatientOverview';
 import CreateUser from './pages/CreateUser';
 import AuditLogs from './pages/AuditLogs';
 import DoctorFormPage from './pages/DoctorFormPage';
+import DoctorProfilePage from './pages/DoctorProfilePage';
 
 function App() {
   return (

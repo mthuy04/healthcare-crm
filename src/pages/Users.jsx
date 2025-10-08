@@ -30,6 +30,9 @@ export default function Users() {
       navigate(`/patient/123`); 
     }
     // Bạn có thể thêm logic cho các vai trò khác ở đây
+    if (user.role === 'Doctor' && user.linkedId) {
+      navigate(`/doctors/edit/${user.linkedId}`);
+    }
   };
 
   return (
@@ -64,7 +67,7 @@ export default function Users() {
               <tr 
                 key={index}
                 onClick={() => handleRowClick(user)}
-                className="hover:bg-gray-50 cursor-pointer"
+                className={ (user.role === 'Patient' || user.role === 'Doctor') ? "hover:bg-gray-50 cursor-pointer" : "" }
               >
                 <td className="py-4 px-6 font-semibold text-gray-900">{user.name}</td>
                 <td className="py-4 px-6 text-gray-600">{user.role}</td>

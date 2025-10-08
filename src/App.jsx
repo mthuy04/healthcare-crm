@@ -11,6 +11,7 @@ import DoctorProfilePage from './pages/DoctorProfilePage';
 import DepartmentsListPage from './pages/DepartmentsListPage';
 import DepartmentFormPage from './pages/DepartmentFormPage';
 import AppointmentsPage from './pages/AppointmentsPage';
+import ReportsPage from './pages/ReportsPage';
 
 function App() {
   return (

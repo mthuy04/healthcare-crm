@@ -6,6 +6,7 @@ import RoleAssignment from './pages/RoleAssignment';
 import PatientOverview from './pages/PatientOverview';
 import CreateUser from './pages/CreateUser';
 import AuditLogs from './pages/AuditLogs';
+import DoctorFormPage from './pages/DoctorFormPage';
 
 function App() {
   return (
@@ -19,6 +20,7 @@ function App() {
         <Route path="/users/create" element={<CreateUser />} />
         <Route path="/audit-logs" element={<AuditLogs />} />
         <Route path="/roles" element={<RoleAssignment />} />
+        <Route path="/doctors/edit/:doctorId" element={<DoctorFormPage />} />
       </Routes>
     </Router>
   );

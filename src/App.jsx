@@ -8,6 +8,8 @@ import CreateUser from './pages/CreateUser';
 import AuditLogs from './pages/AuditLogs';
 import DoctorFormPage from './pages/DoctorFormPage';
 import DoctorProfilePage from './pages/DoctorProfilePage';
+import DepartmentsListPage from './pages/DepartmentsListPage';
+import DepartmentFormPage from './pages/DepartmentFormPage';
 
 function App() {
   return (
@@ -23,6 +25,10 @@ function App() {
         <Route path="/roles" element={<RoleAssignment />} />
         <Route path="/doctors/edit/:doctorId" element={<DoctorFormPage />} />
         <Route path="/doctors/profile/:doctorId" element={<DoctorProfilePage />} />
+        <Route path="/departments" element={<DepartmentsListPage />} />
+        <Route path="/departments/new" element={<DepartmentFormPage />} />
+        <Route path="/departments/edit/:departmentId" element={<DepartmentFormPage />} />
+
       </Routes>
     </Router>
   );
